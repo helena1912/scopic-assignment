@@ -1,0 +1,305 @@
+{
+	"info": {
+		"_postman_id": "d264d0bd-147e-4df2-9b84-9e381a52c559",
+		"name": "Scopic_reqres",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "513161"
+	},
+	"item": [
+		{
+			"name": "Create user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"",
+							"pm.test(\"Create user successfully\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test(\"Create value correctly\", function () {",
+							"    pm.expect(jsonData.name).to.eql(pm.collectionVariables.get(\"name\"));",
+							"    pm.expect(jsonData.job).to.eql(pm.collectionVariables.get(\"job\"));",
+							"",
+							"});",
+							"",
+							"pm.collectionVariables.set(\"userId\", jsonData.id);",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"{{name}}\",\n    \"job\": \"{{job}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{base_url}}/users"
+			},
+			"response": []
+		},
+		{
+			"name": "Get User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"",
+							"pm.test(\"Create user successfully\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Create value correctly\", function () {",
+							"    pm.expect(jsonData.data.name).to.eql(pm.collectionVariables.get(\"name\"));",
+							"    pm.expect(jsonData.data.job).to.eql(pm.collectionVariables.get(\"job\"));",
+							"    pm.expect(jsonData.data.job).to.eql(pm.collectionVariables.get(\"userId\"));",
+							"",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"{{name}}\",\n    \"job\": \"{{job}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{base_url}}/users/{{userId}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Update user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"var jsonData = pm.response.json();",
+							"",
+							"pm.test(\"Create user successfully\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Create value correctly\", function () {",
+							"    pm.expect(jsonData.name).to.eql(pm.collectionVariables.get(\"updatedName\"));",
+							"    pm.expect(jsonData.job).to.eql(pm.collectionVariables.get(\"updatedJob\"));",
+							"",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"function getRandomName() {",
+							"    const firstNames = [\"John\", \"Jane\", \"Alex\", \"Emily\", \"Michael\", \"Sarah\", \"David\", \"Laura\", \"Chris\", \"Anna\"];",
+							"    const lastNames = [\"Smith\", \"Johnson\", \"Brown\", \"Williams\", \"Jones\", \"Miller\", \"Davis\", \"Garcia\", \"Martinez\", \"Hernandez\"];",
+							"",
+							"    const randomFirstName = firstNames[Math.floor(Math.random() * firstNames.length)];",
+							"    const randomLastName = lastNames[Math.floor(Math.random() * lastNames.length)];",
+							"",
+							"    return randomFirstName + ' '+ randomLastName;",
+							"}",
+							"",
+							"function getRandomJob() {",
+							"    const jobs = [",
+							"        \"Software Engineer\", \"Data Scientist\", \"Product Manager\", \"Graphic Designer\",",
+							"        \"Marketing Specialist\", \"Sales Representative\", \"Financial Analyst\",",
+							"        \"Human Resources Manager\", \"Operations Manager\", \"Customer Service Representative\",",
+							"        \"Web Developer\", \"Content Writer\", \"Project Manager\", \"IT Support Specialist\"",
+							"    ];",
+							"",
+							"    const randomJob = jobs[Math.floor(Math.random() * jobs.length)];",
+							"    return randomJob;",
+							"}",
+							"",
+							"pm.collectionVariables.set(\"updatedName\", getRandomName());",
+							"pm.collectionVariables.set(\"updatedJob\", getRandomJob());"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"{{updatedName}}\",\n    \"job\": \"{{updatedJob}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{base_url}}/users/2"
+			},
+			"response": []
+		},
+		{
+			"name": "Get User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"",
+							"pm.test(\"Create user successfully\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Create value correctly\", function () {",
+							"    pm.expect(jsonData.data.name).to.eql(pm.collectionVariables.get(\"name\"));",
+							"    pm.expect(jsonData.data.job).to.eql(pm.collectionVariables.get(\"job\"));",
+							"    pm.expect(jsonData.data.job).to.eql(pm.collectionVariables.get(\"userId\"));",
+							"",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"{{name}}\",\n    \"job\": \"{{job}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{base_url}}/users/{{userId}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Delete user successfully\", function () {",
+							"    pm.response.to.have.status(204);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"{{name}}\",\n    \"job\": \"{{job}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{base_url}}/users/2"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "https://reqres.in/api",
+			"type": "string"
+		},
+		{
+			"key": "name",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "job",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "userId",
+			"value": ""
+		},
+		{
+			"key": "updatedName",
+			"value": ""
+		},
+		{
+			"key": "updatedJob",
+			"value": ""
+		}
+	]
+}
