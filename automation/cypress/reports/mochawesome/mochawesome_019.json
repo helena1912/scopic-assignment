@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-07-02T09:02:31.224Z",
+    "end": "2024-07-02T09:02:42.976Z",
+    "duration": 11752,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "685215a0-14f1-4790-9118-f3b826b13f88",
+      "title": "",
+      "fullFile": "cypress/e2e/register.cy.js",
+      "file": "cypress/e2e/register.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a232c9ba-7abc-4697-a2b9-a8051d47e296",
+          "title": "As an user, I would like to go to register Amazon page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "So that I can complete register form",
+              "fullTitle": "As an user, I would like to go to register Amazon page So that I can complete register form",
+              "timedOut": null,
+              "duration": 9278,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_registerPage.default.goToRegisterPage();\ncy.generateTestData();\ncy.readFile('cypress/fixtures/data.json').then(data => {\n  _registerPage.default.fillInRegisterForm(data);\n  _registerPage.default.clickContinueBtt();\n  _registerPage.default.assertCompleteRegisterForm();\n});",
+              "err": {},
+              "uuid": "3c64263f-6c30-4824-afb5-399fb0db0658",
+              "parentUUID": "a232c9ba-7abc-4697-a2b9-a8051d47e296",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "3c64263f-6c30-4824-afb5-399fb0db0658"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 9278,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

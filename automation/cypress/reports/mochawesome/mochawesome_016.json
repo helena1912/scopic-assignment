@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-07-02T08:55:55.494Z",
+    "end": "2024-07-02T08:56:08.936Z",
+    "duration": 13442,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "70831efd-ec1d-410d-8c4d-931e11c74294",
+      "title": "",
+      "fullFile": "cypress/e2e/addProductToCart.cy.js",
+      "file": "cypress/e2e/addProductToCart.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "1a532ec1-6c41-4a39-8ab0-77dc1f29ccca",
+          "title": "As an user, I would like to view Headsets product",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "So that I can add product to cart from PLP without login yet",
+              "fullTitle": "As an user, I would like to view Headsets product So that I can add product to cart from PLP without login yet",
+              "timedOut": null,
+              "duration": 10723,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "_homePage.default.goToHomePage();\n_homePage.default.assertUserHasNotLogin();\n_homePage.default.chooseCategory('Headsets');\n_productListPage.default.addFirstItemToCart();\n_cartPage.default.goToCartPage();\ncy.readFile('cypress/fixtures/data.json').then(data => {\n  _cartPage.default.assertItemAddedToCart(data.firstProductName);\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 8000ms: Expected to find element: `#nav-logo-sprites`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 8000ms: Expected to find element: `#nav-logo-sprites`, but never found it.\n    at homePage.goToHomePage (webpack://automation/./cypress/pageObjects/homePage.js:10:26)\n    at Context.eval (webpack://automation/./cypress/e2e/addProductToCart.cy.js:7:17)",
+                "diff": null
+              },
+              "uuid": "e0ea5e95-0fcc-4eab-9d8b-4bd9c3722e7c",
+              "parentUUID": "1a532ec1-6c41-4a39-8ab0-77dc1f29ccca",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "e0ea5e95-0fcc-4eab-9d8b-4bd9c3722e7c"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 10723,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
