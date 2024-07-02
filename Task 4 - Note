@@ -1,0 +1,7 @@
+1. For Task 1, I use Cypress framework with Javascript  for writing and executing end-to-end tests. It also integrate with mochawesome to generate reports after eaching running. 
+
+You can read the README.md file to understand how it works and install the necessary package.
+
+2. For Task 2, I use Postman. I organize API requests into collections based on functionality and use pre-request script for setting up the state before request execution and Tests scripts for validating responses. I also prepare some scripts in Tests and verify the response status code and response body. I also store some test data for next request. 
+
+
